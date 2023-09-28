@@ -46,6 +46,32 @@
 
 <script>
 // You'll be inserting your JS code to initialize your map here
+mapboxgl.accessToken = 'pk.eyJ1IjoibGFsMjg0IiwiYSI6ImNsbjNoOWtsaTA4dXEydnJ3ZGJ2eDZlYXUifQ.XWrKoT9FA010dLULeGvP9A'
+const map = new mapboxgl.Map({
+  container: 'map', // container id
+  style: 'mapbox://styles/lal284/cln3hxox306ks01maa88eefhn', // replace this with your style URL
+  minZoom: 12
+});
+
+map.on('load',function(){
+  // Give your layer's source a nickname you'll remember easily. I've called my source `sandy_layer`.
+  map.addSource('sandy_layer',{
+    'type':'vector',
+    'url': 'mapbox://lal284.7lf960wz'
+  });
+  // add a new layer with your polygons
+  map.addLayer({
+    'id':'flood_zones',
+    'type':'fill',
+    'source':'sandy_layer',
+    'source-layer':'Sandy_Inundation_Zone-a3dngk',
+    'paint':{
+      'fill-color':'#00158f',
+      'fill-opacity': 0.5
+    }
+  })
+});
+
 
 // Within a script, you comment using two backslashes.
 </script>
