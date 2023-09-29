@@ -40,7 +40,7 @@
   	<div class="map-overlay top">
   	<div class="map-overlay-inner">
   	<h2>Public and Affordable Housing Flood Risk</h2>
-    <!-- INSERT TEXT HERE -->
+    <!-- INSERT TEXT HERE --> We are making a map of New York City and the Sandy inundation Zone along with NYC Housing Developments. The purple aspects are the flooding risk of the Sandy Hurricane and the red are the housing developments. Both data is from NYC Open Data.
   	</div>
   	</div>
 
@@ -49,8 +49,10 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibGFsMjg0IiwiYSI6ImNsbjNoOWtsaTA4dXEydnJ3ZGJ2eDZlYXUifQ.XWrKoT9FA010dLULeGvP9A'
 const map = new mapboxgl.Map({
   container: 'map', // container id
-  style: 'mapbox://styles/lal284/cln3hxox306ks01maa88eefhn', // replace this with your style URL
-  minZoom: 12
+  style: 'mapbox://styles/lal284/cln3hxox306ks01maa88eefhn',
+  center: [-73.968285, 40.785091],
+  zoom: 12,
+  minZoom: 12 // replace this with your style URL
 });
 
 map.on('load',function(){
@@ -58,6 +60,10 @@ map.on('load',function(){
   map.addSource('sandy_layer',{
     'type':'vector',
     'url': 'mapbox://lal284.7lf960wz'
+  });
+  map.addSource('nycha_layer',{
+    'type':'vector',
+    'url': 'mapbox://lal284.015vmdou'
   });
   // add a new layer with your polygons
   map.addLayer({
@@ -67,6 +73,18 @@ map.on('load',function(){
     'source-layer':'Sandy_Inundation_Zone-a3dngk',
     'paint':{
       'fill-color':'#00158f',
+      'fill-opacity': 0.5
+    }
+  })
+
+  // add a new layer with your polygons
+  map.addLayer({
+    'id':'housing_zones',
+    'type':'fill',
+    'source':'nycha_layer',
+    'source-layer':'Map_of_NYCHA_Developments-3dsb3h',
+    'paint':{
+      'fill-color':'#ff0a2f',
       'fill-opacity': 0.5
     }
   })
