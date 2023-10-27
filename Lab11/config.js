@@ -21,7 +21,6 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Display Title',
-            image: 'images/source.png',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             location: {
                 center: [-122.418398, 37.759483],
@@ -51,7 +50,6 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'Second Title',
-            image: 'images/source.png',
             description: 'Copy these sections to add to your story.',
             location: {
                 center: [-77.020636, 38.886900],
@@ -89,7 +87,6 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Third Title',
-            image: './path/to/image/source.png',
             description: 'Copy these sections to add to your story.',
             location: {
               center: [-73.97615, 40.71901],
